@@ -188,8 +188,6 @@ project/
 
 **Kavikkannan**
 App Lead • ISA-VIT | LegalTech Innovator | AI Workflow Engineer
-📧 *[Add your contact or portfolio link]*
-🌐 *[Add project website or demo link if available]*
 
 ---
 
@@ -203,19 +201,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
   <em>Made with ❤️ using Python, Gemini API, and the power of intelligent design.</em>
 </p>
 ```
-
----
-
-### 🚀 Next Steps for You
-
-To make this README *look absolutely stunning* on GitHub:
-
-1. **Add a banner image** — save one as
-   `assets/compass_banner.png` (1200×400 works great).
-   I can design one for you if you’d like.
-2. **Replace** `yourusername` in the badge link with your actual GitHub handle.
-3. Optionally, add:
-
-   * a **demo GIF** or video link below the banner, and
-   * links to **Docs**, **Issues**, or **Contributors** if you plan open-source contributions.
 
