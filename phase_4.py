@@ -10,7 +10,7 @@ from typing import Dict, Any, List
 
 # --- Configuration ---
 API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key="
-API_KEY = "AIzaSyDJOtBpIdILXlZkbDzxWee59ZVy84CtO_4"
+API_KEY = "AIzaSyDJOtBp........"
 
 # The name of the main output directory for all generated files.
 OUTPUT_DIR = "design_survey_results"
