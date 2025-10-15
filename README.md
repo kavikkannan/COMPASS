@@ -1,120 +1,221 @@
-COMPASS: Comprehensive Persona-driven Assessment System
 
-COMPASS is an LLM-powered automation tool that provides clear direction and guidance for your product's design. It simulates a comprehensive design survey by generating realistic user personas, having them "interact" with your product screenshots, and synthesizing their feedback into actionable, high-quality recommendations.
+<!-- Banner Section -->
+<p align="center">
+  <img src="assets/compass_banner.png" alt="COMPASS Banner" width="80%">
+</p>
 
-Find your design's true north and navigate the complexities of UX with confidence.
+<h1 align="center">🧭 COMPASS</h1>
+<h3 align="center">Comprehensive Persona-driven Assessment System</h3>
 
-The Problem
+<p align="center">
+  <em>Guiding design teams with clarity, direction, and data-driven insight.</em>
+</p>
 
-How do you get high-quality user feedback at scale before writing a single line of code? Traditional user research is slow, expensive, and often difficult to scale. As a result, critical design flaws can go unnoticed until late in the development cycle.
+---
 
-The Solution: COMPASS 🧭
+<p align="center">
+  <!-- Badges -->
+  <img src="https://img.shields.io/badge/Python-3.7%2B-blue?logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/LLM-Powered-green?logo=openai" alt="LLM Powered">
+  <img src="https://img.shields.io/badge/Google-Gemini%20API-orange?logo=google" alt="Gemini API">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
+  <img src="https://img.shields.io/github/stars/yourusername/COMPASS?style=social" alt="Stars">
+</p>
 
-COMPASS automates this entire process. It acts as a virtual UX research team, running a full design survey in minutes, not weeks. It leverages the power of multimodal Large Language Models to analyze your designs from the perspective of diverse, AI-generated user personas, providing insights that are both deep and broad.
+---
 
-Key Features
+## 🌟 Overview
 
-🤖 AI-Powered Persona Generation: Automatically creates detailed user personas relevant to your domain (e.g., "Senior Patent Attorney," "Paralegal"), complete with goals, frustrations, and tech-savviness levels.
+**COMPASS** is an **LLM-powered design intelligence system** that automates user testing through **AI-generated personas**.  
+It provides **data-driven insights**, **authentic feedback**, and **page-level recommendations** that empower product teams to design user-first experiences.
 
-🖼️ Multimodal Page Analysis: Ingests your product's UI through screenshots and text descriptions, allowing for rich, context-aware visual feedback.
+Originally built for **legal technology interfaces**, COMPASS seamlessly adapts to **any AI-integrated ecosystem**, from dashboards to conversational assistants.
 
-💬 Authentic Feedback Simulation: Generates specific, quote-like feedback from each persona's point of view, avoiding generic responses.
+---
 
-📊 Actionable Reporting: Distills hundreds of feedback points into clear, high-level themes and provides a prioritized roadmap with structural, design, and feature-based recommendations.
+## 🧠 Key Highlights
 
-⚖️ Domain-Aware: Perfectly suited for specialized products (like legal tech) where sourcing real users for feedback is challenging.
+| Category | Description |
+|-----------|-------------|
+| 🤖 **Persona Intelligence** | Creates realistic user personas with context-aware behaviors and motivations. |
+| 📱 **Multi-Page Testing** | Evaluates multiple screens simultaneously with computer-vision-based UI analysis. |
+| 💬 **Feedback Simulation** | Generates authentic first-person feedback from each persona’s perspective. |
+| 📊 **Comprehensive Reporting** | Consolidates all insights into structured, actionable recommendations. |
+| 🧩 **Agentic Flow Analysis** | Tests how well the AI assistant guides users and supports workflows. |
 
-How It Works
+---
 
-COMPASS operates in a five-phase pipeline, automating the entire research and analysis workflow.
+## 🏗️ System Architecture
 
-Phase 1: Foundation: Generates personas, scenarios, and inventories of your product pages.
+```
 
-Phase 2: Simulation: Personas "review" your page screenshots and provide detailed feedback based on their assigned tasks.
+├── phases_1_2_3.py          # Persona, inventory, and feedback simulation
+├── phase_4.py               # Feedback consolidation
+├── phase_5.py               # Recommendation generation
+├── main_controller.py       # Core orchestrator
+└── generate_detailed_report.py  # Page-specific analysis
 
-Phase 3: Data Collection: All simulated feedback is aggregated and organized.
+````
 
-Phase 4: Consolidation: The LLM analyzes the raw feedback to identify recurring patterns and themes.
+**COMPASS** operates in **5 modular phases**:
+1. **Foundation Generation** – Personas, page inventories, and user scenarios  
+2. **Feedback Simulation** – Task-driven interaction feedback  
+3. **Data Collection** – Aggregation and validation  
+4. **Consolidation** – Theme identification and synthesis  
+5. **Recommendations** – Strategic and page-level guidance  
 
-Phase 5: Recommendation: The system generates a final, high-level report with strategic advice and an actionable roadmap.
+---
 
-Getting Started
+## ⚙️ How It Works
 
-Prerequisites
+### 🧩 Phase Flow
+1. **Persona Creation** → Realistic, goal-based personas  
+2. **Scenario Simulation** → AI-driven interactions with each page  
+3. **Feedback Extraction** → Structured, first-person feedback  
+4. **Analysis** → Identify recurring UX issues  
+5. **Recommendations** → Generate prioritized design actions  
 
-Python 3.7+
+---
 
-An API Key from a multimodal LLM provider (e.g., Google's Gemini)
+## 🧾 Output Formats
 
-The requests Python library (pip install requests)
+### ✅ **Feedback Table**
+| Page | Persona | Feedback Type | Specific Feedback |
+|------|----------|---------------|------------------|
+| Assistant | Dr. Anya Sharma | UX Flow | “I expected a dedicated ‘Prior Art Analysis’ feature…” |
 
-Installation & Setup
+### 📋 **Page Report**
+- Summary of key issues  
+- Persona-specific insights  
+- Prioritized action steps  
 
-Clone the repository:
+---
 
-git clone [Your-Repo-URL]
-cd COMPASS
+## ⚡ Quick Start
 
+### **Configuration**
+```python
+RUN_PHASES_1_2_3 = True    # Persona, inventory, feedback
+RUN_PHASE_4 = True          # Consolidation
+RUN_PHASE_5 = True          # Recommendations
+````
 
-Configure the Script:
+### **Run**
 
-Open design_survey_automation.py (or your main script file).
+```bash
+# Run all phases
+python main_controller.py
 
-In the Configuration section, add your API_KEY.
+# Run individually
+python phases_1_2_3.py
+python phase_4.py
+python phase_5.py
+```
 
-Prepare Your Pages:
+### **Batch Mode (Windows)**
 
-Create a directory (e.g., my_pages).
+```bash
+run_main_controller.bat
+run_phase4.bat
+run_phase5.bat
+```
 
-For each screen you want to test, add two files with matching names:
+---
 
-A screenshot: dashboard.png
+## 🧰 Project Setup
 
-A text description: dashboard.txt
+### **Requirements**
 
-Running the Tool
+* Python ≥ 3.7
+* Google Gemini API access
+* Packages: `requests`, `json`, `os`, `re`, `base64`, `time`
 
-Execute the main script from your terminal, pointing it to your pages directory:
+### **File Structure**
 
-python design_survey_automation.py my_pages
+```
+project/
+├── my_pages/                  # Screenshots + text descriptions
+├── design_survey_results/
+│   ├── 1_personas/
+│   ├── 2_page_inventories/
+│   ├── 3_scenarios/
+│   ├── 4_feedback_results/
+│   └── 5_final_reports/
+└── scripts/
+```
 
+---
 
-The script will create a design_survey_results directory containing all the generated assets, from personas to the final actionable report.
+## 🎯 Benefits
 
-Example Output
+| For                  | You Gain                                     |
+| -------------------- | -------------------------------------------- |
+| 🧩 **Design Teams**  | Actionable, page-specific improvements       |
+| 🚀 **Product Teams** | Faster iteration with automated testing      |
+| 💻 **Developers**    | Clear feature requirements and fixes         |
+| 🔍 **Researchers**   | Standardized persona feedback for comparison |
 
-COMPASS doesn't just give you raw data; it provides a strategic path forward.
+---
 
-Feedback Theme
+## 🔬 Advanced Features
 
-Recommendation
+* **Chunked API Calls** – Handles long prompts safely
+* **Error Recovery** – Retries and fallbacks to ensure completion
+* **Agentic Flow Testing** – Evaluates AI guidance across pages
+* **Live Monitoring** – Tracks progress and debug info in real time
 
-UX Flow & Task Initiation
+---
 
-Implement a redesigned global navigation system with clear hierarchical menus. Introduce a personalized "My Tasks" view upon login...
+## 🔮 Roadmap
 
-Visual Design & Readability
+* 🌐 Multi-language support
+* 🎨 Figma / Sketch integration
+* 🧪 Automated A/B testing suggestions
+* 📈 Visual analytics dashboard
+* 🧩 Plugin system for custom evaluation modules
 
-Establish a comprehensive design system with a consistent color palette, typography scale, and icon library to improve cohesion...
+---
 
-Feature Gaps & Efficacy
+## 🧭 Philosophy
 
-Develop and integrate missing features like advanced document comparison and intelligent clause suggestions to address user pain points...
+> “A compass doesn’t just point north — it helps you navigate your path.”
+> **COMPASS** brings that same clarity to your **design journey**,
+> showing where your product stands and how it can evolve.
 
-Contributing
+---
 
-We welcome contributions! Please feel free to submit a pull request or open an issue to discuss proposed changes.
+## 👨‍💻 Developer
 
-Fork the Project
+**Kavikkannan**
+App Lead • ISA-VIT | LegalTech Innovator | AI Workflow Engineer
+📧 *[Add your contact or portfolio link]*
+🌐 *[Add project website or demo link if available]*
 
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
+---
 
-Commit your Changes (git commit -m 'Add some AmazingFeature')
+## 🪪 License
 
-Push to the Branch (git push origin feature/AmazingFeature)
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
-Open a Pull Request
+---
 
-License
+<p align="center">
+  <em>Made with ❤️ using Python, Gemini API, and the power of intelligent design.</em>
+</p>
+```
 
-Distributed under the MIT License. See LICENSE for more information.
+---
+
+### 🚀 Next Steps for You
+
+To make this README *look absolutely stunning* on GitHub:
+
+1. **Add a banner image** — save one as
+   `assets/compass_banner.png` (1200×400 works great).
+   I can design one for you if you’d like.
+2. **Replace** `yourusername` in the badge link with your actual GitHub handle.
+3. Optionally, add:
+
+   * a **demo GIF** or video link below the banner, and
+   * links to **Docs**, **Issues**, or **Contributors** if you plan open-source contributions.
+
