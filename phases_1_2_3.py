@@ -13,7 +13,7 @@ from typing import Dict, Any, List
 # payload structure and response parsing based on your specific LLM provider
 # (e.g., Gemini, OpenAI, Anthropic).
 API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key="
-API_KEY = "AIzaSyDJOtBpIdILXlZkbDzxWee59ZVy84CtO_4" # Your API key here, if required.
+API_KEY = "AIzaSyDJOtBp........" # Your API key here, if required.
 
 # The name of the main output directory for all generated files.
 OUTPUT_DIR = "design_survey_results"
