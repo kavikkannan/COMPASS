@@ -1,0 +1,21 @@
+**Page Name:** Error Page
+
+**Part A: User Experience & Flow**
+1.  How easy was it to start the task on this page? **1**
+2.  How clear was the path to completing the task from here? **1**
+3.  **Open Feedback:** "I was actively trying to use the 'Claim Scoping & Amendment Impact' feature to strategize the Aura AI claims against new prior art and the enablement rejection. Landing on this generic 'Error Page' completely blocks me from my critical task. It’s an immediate, frustrating roadblock that wastes valuable time when I'm under immense pressure to draft a sophisticated response."
+
+**Part B: Specific UI & Design Details**
+1.  **Readability:** "The main error message 'Uh oh! Something went wrong.' is clear and easy to read due to its size and contrast. The explanatory text below, 'We're sorry, an unexpected error has occurred. Please try again or go back to the home page,' is also legible. My issue isn't with the readability of the text itself, but with the lack of *specific* information about what went wrong, which makes it hard to diagnose or understand the interruption."
+2.  **Layout & Spacing:** "The layout is standard for an error page; the icon, message, and buttons are well-centered and appropriately spaced. There isn't any clutter, and the 'Try again' and 'Go back' buttons are clearly separated. However, a clean layout doesn't resolve the core problem of being stuck."
+3.  **Color & Visuals:** "The red exclamation icon clearly signals an error, which is appropriate and immediately grabs attention. The overall muted color scheme allows the error message to stand out effectively. It visually communicates a problem, but again, without any actionable detail about the cause of that problem."
+4.  **Overall Impression:** "My overall impression is that this page is a sterile and unhelpful interruption. While it's visually clear that an error occurred, it offers no insight into *why* it happened or how to swiftly return to my critical 'Claim Amendment Impact Simulation' task for Aura AI. It feels like a generic 'dead end' rather than a helpful recovery mechanism."
+
+**Part C: Feature Evaluation & Gaps**
+1.  **Feature Usefulness:** "The 'Try again' button is the only potentially useful feature, but its value is entirely dependent on whether it actually resolves the underlying error and lets me resume my task. The 'Go back' button just takes me further away from my current work, which is not useful at all when I'm in the middle of a strategic claim analysis. These are very basic, unhelpful recovery options given the sophistication of the platform I expect."
+2.  **Missing Features:** "I critically need the 'Claim Scoping & Amendment Impact' feature that I was trying to access. On this error page, I would expect a clear option to 'Report this error with details' that automatically captures system logs and context, rather than relying on me to try vague 'try again' options. I also need a direct link to the *specific application context* I was in, not just a generic 'Go back' to the home page."
+
+**Part D: Assistant Integration & Agentic Flow**
+1.  **Assistant Guidance:** "The assistant chatbot is right there, but it needs to be far more proactive. It should recognize that I've hit an error *and* recall the specific task I was attempting – 'Claim Amendment Impact Simulation' for Aura AI. I would expect it to offer immediate troubleshooting steps or, more importantly, suggest an alternative path to re-access the feature I was trying to use, rather than just sitting there passively."
+2.  **Workflow Discovery:** "This error page completely disrupts any workflow discovery. I can't even think about exploring other workflows when I'm blocked from my current, critical one. The assistant should be guiding me *back into* my strategic workflow for Office Action responses, not just letting me stare at an error."
+3.  **Cross-Page Navigation:** "The 'Go back' button is the only navigation, and it's insufficient. I don't want to go back to a generic home page; I need to return to the specific patent application and, ideally, the 'Claim Scoping & Amendment Impact' module I was using when the error occurred. There should be a clear contextual 'Return to last task' or 'Go to Aura AI application' option, either directly on the page or via the assistant."

@@ -1,0 +1,27 @@
+**Page Name:** VAULT CASE DETAIL PAGE
+**Part A: User Experience & Flow**
+*(Rate on a scale of 1-5, where 1 = Very Difficult and 5 = Very Easy)*
+1. How easy was it to start the task on this page? `1`
+2. How clear was the path to completing the task from here? `1`
+3. **Open Feedback:** "I was trying to utilize the 'Claim Scoping & Amendment Impact' feature to simulate and visualize potential claim amendments for the Aura AI application. My goal is to strategically craft changes that overcome the new prior art and the enablement rejection. Landing on this 'Vault Case Detail' page, which is purely for managing case files and basic metadata, is a complete misdirection. I expected to be in an environment where I could actually manipulate claims, see their scope visually, and assess the impact of changes, not uploading documents or editing administrative details."
+
+**Part B: Specific UI & Design Details**
+1. **Readability:** "The general text for headings like 'Case Files' and 'Case Metadata' is readable. However, in the 'Case Files' table, the 'Last Modified' column showing 'Invalid Date' is a bit jarring and uninformative. The 'View / Download' links are quite small and blend in, making them less prominent than I'd prefer for quick actions."
+2. **Layout & Spacing:** "The two-column layout separating 'Case Files' and 'Case Metadata' is clean. However, within the 'Case Metadata' panel, the 'Add field...' dropdown and 'Add' button feel a little cramped directly above the 'Save' and 'Cancel' buttons. I prefer more breathing room between critical action buttons to avoid misclicks, especially the 'Save' and 'Cancel' pair. The 'Upload files' button also feels a bit isolated on its own."
+3. **Color & Visuals:** "The page is very minimalist, almost to a fault. There are no distinctive colors or visual cues to highlight specific functionalities that would be relevant to strategic patent work. It presents as a very generic administrative data entry screen, rather than a sophisticated legal tech platform designed for advanced analysis and simulation. It's clean, but lacks the visual hierarchy to guide me to complex features."
+4. **Overall Impression:** "My overall impression is that this page is a basic administrative hub for storing documents and editing case details. It gives no indication of the powerful analytical and strategic tools I was promised and desperately need for my 'Claim Amendment Impact Simulation' task. It feels like I've been sent to do clerical work when I need to be engaging in high-level strategic thinking. It's not cluttered, but it's empty of *relevant* functionality for my current need."
+
+**Part C: Feature Evaluation & Gaps**
+1. **Feature Usefulness:** "The features available here – uploading files, searching files, and editing case metadata – are completely *unrelated* to my task of 'Claim Amendment Impact Simulation and Visualization.' While these are necessary administrative functions for any case, they provide zero assistance in drafting, analyzing, or visualizing claim amendments, simulating their scope, or estimating allowance probability. I need strategic tools, not just a digital filing cabinet."
+2. **Missing Features:** "I am missing *all* the core features required for my task. I expected an interface that allows me to:
+    *   Directly edit and propose new claim language.
+    *   Visually compare the scope of existing claims against proposed amended claims.
+    *   Run simulations to understand the impact of amendments on potential infringement scenarios.
+    *   Show how amendments differentiate from specific prior art references.
+    *   Provide an estimated likelihood of allowance for different amendment strategies.
+    *   Integrate directly with the claims and prior art associated with *this specific application*, not just general file uploads."
+
+**Part D: Assistant Integration & Agentic Flow**
+1. **Assistant Guidance:** "If the assistant chatbot is truly the primary interface for an intelligent agentic flow, then leading me to *this* page for 'Claim Amendment Impact Simulation' is a major failure. This page provides absolutely no pathway or guidance to the actual feature I need. I expected the assistant to take me directly into the specific module for claim analysis and amendment simulation, not a generic case detail view that focuses on file management."
+2. **Workflow Discovery:** "On *this specific page*, there are no clear indications or links to discover other available workflows, particularly those specialized for patent prosecution strategy. The only navigation is '← Back to Vault,' which is too broad and doesn't point to specific analytical tools. If the assistant is supposed to orchestrate my workflow, the page itself should either be the right one or offer direct routes to the correct strategic tools."
+3. **Cross-Page Navigation:** "Beyond navigating '← Back to Vault,' this page offers no direct cross-page navigation to other critical modules like the 'Prosecution History Summary' or, more importantly, the 'Claim Scoping & Amendment Impact' feature. This means I am entirely dependent on the assistant's intelligence to guide me. If the assistant misinterprets my request or makes an error, I'm left stranded on an administrative page with no clear way to access the sophisticated tools I need for my strategic work."

@@ -1,0 +1,180 @@
+# ASSISTANT PAGE - Detailed Description
+
+## Page Overview
+The Assistant page is the main AI-powered legal assistance interface of the LexAI application. It provides users with an intelligent chat interface for legal queries, document analysis, and AI-powered legal guidance specifically tailored for Indian law.
+
+## Layout Structure
+- **Two-column responsive layout**
+- **Left Column**: Main chat interface (flexible width)
+- **Right Column**: Sidebar with calendar widget and quick actions (fixed 384px width on desktop)
+- **Background**: Gradient from gray-50 to blue-50
+- **Full height**: Uses h-screen for complete viewport coverage
+
+## Header Section
+- **Title**: "LexAI Assistant" (large, bold text)
+- **Subtitle**: "AI-powered legal assistance with document analysis and expert guidance."
+- **Positioning**: Top of main content area with margin bottom
+
+## Main Chat Interface (Left Column)
+
+### LexAI Workflows Section
+Located at the top of the chat interface with a distinctive header:
+- **Header**: "LexAI Workflows" with sparkles icon
+- **Four Workflow Buttons** in a 2x2 grid (responsive to 4x1 on mobile):
+  1. **Summarize** (Blue theme)
+     - Icon: Template icon
+     - Action: "Please summarize the key points of my uploaded document."
+  2. **Citations** (Green theme)
+     - Icon: Case file icon
+     - Action: "Please provide legal citations for the issues in my uploaded document."
+  3. **Translate** (Purple theme)
+     - Icon: Rephrase icon
+     - Action: "Please translate my uploaded document to Hindi."
+  4. **Arguments** (Orange theme)
+     - Icon: Scale icon
+     - Action: "Please generate arguments and counter-arguments for the legal position in my case."
+
+### Welcome Message (Initial State)
+Displayed when no messages exist:
+- **Assistant Icon**: Large 48px assistant icon
+- **Title**: "Welcome to LexAI"
+- **Description**: "Your AI-powered Indian legal assistant. Ask any legal question or upload a document for analysis."
+- **Quick Questions Section**: 6 suggested prompt buttons in a responsive grid:
+  - "Summarize the key points of my uploaded document"
+  - "Translate this document to Hindi"
+  - "Generate arguments and counter-arguments for this case"
+  - "Provide legal citations for this document"
+  - "What are the key elements of a valid contract under Indian law?"
+  - "Explain the process for filing a consumer complaint in India"
+
+### Chat Messages Area
+- **Scrollable container** with custom scrollbar
+- **Message bubbles** with different styling for user vs assistant:
+  - **User messages**: Right-aligned, blue background, white text
+  - **Assistant messages**: Left-aligned, muted background, dark text
+- **Avatar system**: User and assistant avatars
+- **Markdown rendering**: Full markdown support for AI responses
+- **Timestamps**: Formatted time display for each message
+- **Loading indicator**: Animated sparkles icon when AI is processing
+
+### File Upload Section
+- **Upload indicator**: Shows when document is uploaded
+- **File information display**:
+  - Document name with file icon
+  - Document type identification
+  - Key information tags (up to 2 visible, with "+X more" indicator)
+  - Processing status with loading animation
+- **Remove file button**: X icon to clear uploaded document
+
+### Input Form
+- **Upload button**: Paperclip icon, triggers file selection
+- **Text input**: "Ask a legal question..." placeholder
+- **Send button**: Send icon, disabled when empty or loading
+- **File input**: Hidden input accepting .txt, .md, .json, .pdf files
+
+## Sidebar (Right Column)
+
+### Calendar Widget
+- **Title**: "Upcoming Events"
+- **Content**: Shows next 3 Google Calendar events
+- **Event display**: Date, title, and time
+- **States**: Loading, error, empty, and populated
+- **Link**: "View Full Calendar" to main calendar page
+
+### Quick Actions
+- **Title**: "Quick Navigation"
+- **Two action buttons**:
+  1. **Draft a Document**: Navigates to /draft
+  2. **Show My Cases**: Navigates to /vault
+- **Help text**: Information about LexAI workflows availability
+
+## File Upload Capabilities
+
+### Supported File Types
+- **PDF**: Full text extraction and analysis
+- **DOC/DOCX**: Word document processing
+- **TXT/MD**: Direct text content loading
+- **JSON**: Structured data parsing
+- **File size limit**: 15MB maximum
+
+### Processing Features
+- **Genkit integration**: Advanced document analysis
+- **Text extraction**: Automatic content extraction
+- **Document type identification**: AI-powered classification
+- **Key information extraction**: Important details highlighting
+- **Error handling**: Graceful fallback for processing failures
+
+## AI Features
+
+### Legal Advice Chat
+- **Powered by**: Gemini AI with legal specialization
+- **Context awareness**: Maintains conversation history
+- **Document integration**: Uses uploaded document content
+- **Indian law focus**: Specialized for Indian legal system
+
+### Workflow Triggers
+- **Pre-defined prompts**: Common legal tasks
+- **One-click actions**: Instant AI processing
+- **Visual feedback**: Loading states and completion indicators
+- **Error handling**: Graceful failure management
+
+### Multi-language Support
+- **Translation capabilities**: Hindi and other languages
+- **Document analysis**: Multi-language document processing
+- **Response formatting**: Proper language handling
+
+## Responsive Design
+
+### Mobile Layout
+- **Single column**: Sidebar moves below main content
+- **Touch-friendly**: Larger buttons and touch targets
+- **Optimized spacing**: Adjusted padding and margins
+- **Workflow grid**: Stacks to single column on small screens
+
+### Desktop Layout
+- **Two columns**: Side-by-side layout
+- **Fixed sidebar**: 384px width
+- **Flexible main**: Takes remaining space
+- **Hover effects**: Interactive elements with hover states
+
+## Technical Implementation
+
+### State Management
+- **React hooks**: useState, useEffect, useCallback
+- **File state**: Uploaded file tracking
+- **Message state**: Chat history management
+- **UI state**: Loading, error, and interaction states
+
+### API Integration
+- **Gemini AI**: Legal advice chat processing
+- **Genkit**: Document analysis and processing
+- **Google Calendar**: Event data fetching
+- **Error handling**: Comprehensive error management
+
+### Performance Features
+- **Lazy loading**: Efficient component rendering
+- **Memoization**: Optimized re-renders
+- **File size limits**: Prevents performance issues
+- **Loading states**: User feedback during processing
+
+## User Experience Features
+
+### Accessibility
+- **ARIA labels**: Screen reader support
+- **Keyboard navigation**: Full keyboard accessibility
+- **Focus management**: Proper focus handling
+- **Color contrast**: WCAG compliant colors
+
+### Visual Feedback
+- **Loading animations**: Sparkles and pulse effects
+- **Status indicators**: Clear state communication
+- **Error messages**: Helpful error descriptions
+- **Success confirmations**: Toast notifications
+
+### Interaction Design
+- **Smooth transitions**: CSS transitions for interactions
+- **Hover states**: Visual feedback on hover
+- **Click feedback**: Immediate response to clicks
+- **Form validation**: Real-time input validation
+
+This page serves as the central hub for AI-powered legal assistance, combining advanced document processing with intelligent chat capabilities to provide comprehensive legal support for Indian law practitioners.

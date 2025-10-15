@@ -1,0 +1,222 @@
+# HOME PAGE - Detailed Description
+
+## Page Overview
+The Home page serves as the main dashboard and entry point for the LexAI document management application. It provides users with a comprehensive interface to search, browse, and manage their documents while offering quick access to template creation and document editing features.
+
+## Layout Structure
+- **Full viewport height**: Uses min-h-screen for complete screen coverage
+- **Fixed header**: 64px height fixed navigation bar at the top
+- **Main content area**: Scrollable content below the fixed header
+- **Background**: White background with clean, minimal design
+
+## Header Section (Fixed Navigation)
+- **Height**: 64px (h-16) fixed at top
+- **Background**: White background
+- **Padding**: 16px (p-4) on all sides
+- **Z-index**: 10 for proper layering
+
+### Left Section - Branding
+- **Logo**: 36x36px SVG logo image
+- **Brand name**: "Docs" text with xl font size (text-xl)
+- **Layout**: Horizontal flex with 12px gap (gap-3)
+- **Alignment**: Items centered vertically
+
+### Center Section - Search
+- **Search Input Component**: Full-width search functionality
+- **Placeholder**: "Search" text
+- **Styling**: Rounded full with custom background colors
+- **Features**: 
+  - Search icon on the left
+  - Clear button (X) on the right when text is present
+  - Focus states with shadow effects
+  - Background changes from #F0F4F8 to white on focus
+
+### Right Section - User Actions
+- **Organization Switcher**: Clerk component for organization management
+- **Template Editor Button**: 
+  - Text: "Template Editor"
+  - Icon: EditIcon (size-4)
+  - Styling: Outline variant, small size
+  - Action: Links to /template-editor
+- **User Button**: Clerk user profile button
+- **Layout**: Horizontal flex with 12px gap (gap-3)
+
+## Main Content Area
+
+### Templates Gallery Section
+- **Background**: Light gray (#F1F3F4)
+- **Container**: Max-width screen-xl with auto margins
+- **Padding**: 64px horizontal (px-16), 24px vertical (py-6)
+- **Layout**: Flex column with 16px gap (gap-y-4)
+
+#### Gallery Header
+- **Title**: "Start a new document" (font-medium)
+- **Search Bar**: 
+  - Width: 256px (w-64)
+  - Placeholder: "Search templates..."
+  - Right padding: 40px (pr-10) for search icon
+  - Loading state: Spinning animation when searching
+  - Clear button: X icon when text is present
+
+#### Template Carousel
+- **Layout**: Horizontal carousel with responsive breakpoints
+- **Item sizing**: 
+  - Mobile: 1/2 width (basis-1/2)
+  - Small: 1/3 width (sm:basis-1/3)
+  - Medium: 1/4 width (md:basis-1/4)
+  - Large: 1/5 width (lg:basis-1/5)
+  - XL: 1/6 width (xl:basis-1/6)
+  - 2XL: 14.285714% width (2xl:basis-[14.285714%])
+
+#### Import Document Button (First Item)
+- **Component**: DocxUploader
+- **Position**: Always first in carousel
+- **Functionality**: Upload and process DOCX files
+
+#### Template Items
+- **Aspect ratio**: 3:4 (aspect-[3/4])
+- **Layout**: Vertical flex with 10px gap (gap-y-2.5)
+- **Hover effects**: Border color change to blue-500
+- **Background**: White with rounded corners
+- **Image**: Background image with cover sizing
+- **Loading state**: 
+  - Overlay with white/80 background
+  - Spinning loader icon
+  - "Creating..." or "Customizing..." text
+- **Template name**: Truncated text below image
+
+#### Carousel Navigation
+- **Previous button**: Left arrow navigation
+- **Next button**: Right arrow navigation
+- **Positioning**: Overlaid on carousel
+
+### Documents Table Section
+- **Container**: Same as templates gallery
+- **Layout**: Flex column with 20px gap (gap-5)
+
+#### Table Structure
+- **Component**: Shadcn Table component
+- **Headers**:
+  - "Name" (main column)
+  - Empty column for icon
+  - "Shared" (hidden on mobile, md:table-cell)
+  - "Created at" (hidden on mobile, md:table-cell)
+
+#### Loading State
+- **Container**: Centered with 96px height (h-24)
+- **Icon**: Spinning LoaderIcon (size-5)
+- **Color**: Muted foreground color
+- **Animation**: Continuous spin
+
+#### Empty State
+- **Message**: "No documents found"
+- **Styling**: Muted foreground, centered text
+- **Height**: 96px (h-24)
+- **Span**: All 4 columns
+
+#### Document Rows
+- **Clickable**: Full row click navigation
+- **Loading state**: 
+  - Opacity reduced to 50%
+  - Pointer events disabled
+  - Loading spinner in icon column
+  - "Opening..." text next to title
+
+##### Row Content
+- **Icon column**: 
+  - Google Docs icon (SiGoogledocs)
+  - Blue fill color (fill-blue-500)
+  - Size: 24px (size-6)
+  - Loading: Spinning loader
+
+- **Name column**:
+  - Document title (font-medium)
+  - Width: 45% on medium screens (md:w-[45%])
+  - Loading state: Shows "Opening..." text
+
+- **Shared column** (hidden on mobile):
+  - Organization icon (Building2Icon) for org docs
+  - User icon (CircleUserIcon) for personal docs
+  - Text: "Organization" or "Personal"
+  - Muted foreground color
+
+- **Created at column** (hidden on mobile):
+  - Formatted date using date-fns
+  - Format: "MMM dd, yyyy" (e.g., "Oct 15, 2025")
+  - Muted foreground color
+
+- **Actions column**:
+  - Document menu dropdown
+  - Three-dot menu (MoreVertical icon)
+  - Ghost button variant, icon size, rounded full
+
+#### Document Menu Dropdown
+- **Trigger**: Three-dot menu button
+- **Items**:
+  - "Rename" (FilePenIcon)
+  - "Remove" (TrashIcon) 
+  - "Open in a new tab" (ExternalLinkIcon)
+- **Styling**: Standard dropdown menu
+- **Icons**: 16px size with 8px right margin
+
+#### Load More Button
+- **Position**: Centered below table
+- **Text**: "Load more" or "End of results"
+- **State**: Disabled when no more results
+- **Styling**: Ghost variant, small size
+
+## Responsive Design
+
+### Mobile Layout
+- **Search bar**: Full width with proper touch targets
+- **Table columns**: Hide "Shared" and "Created at" columns
+- **Template carousel**: Single column layout
+- **Touch targets**: Optimized for mobile interaction
+
+### Desktop Layout
+- **Full table**: All columns visible
+- **Template carousel**: Multi-column grid
+- **Hover effects**: Rich interactive feedback
+- **Optimal spacing**: Professional desktop appearance
+
+## User Experience Features
+
+### Search Functionality
+- **Real-time search**: Updates as user types
+- **Clear button**: Easy search reset
+- **Focus states**: Visual feedback on interaction
+- **Loading states**: Clear indication during search
+
+### Navigation
+- **Document access**: Click any row to open document
+- **New tab option**: Right-click or menu option
+- **Template creation**: Direct access to template editor
+- **User management**: Easy organization switching
+
+### Visual Feedback
+- **Loading states**: Clear progress indication
+- **Hover effects**: Interactive element highlighting
+- **Empty states**: Helpful messaging when no content
+- **Error handling**: Graceful error management
+
+## Technical Implementation
+
+### State Management
+- **Search state**: URL-based search parameter
+- **Pagination**: Convex paginated queries
+- **Loading states**: Local component state
+- **Navigation**: Next.js router integration
+
+### Data Fetching
+- **Documents**: Convex paginated query with 5 initial items
+- **Search**: Real-time search parameter updates
+- **Load more**: Incremental loading of 5 additional items
+- **Status tracking**: Pagination status management
+
+### Performance Features
+- **Lazy loading**: Efficient data loading
+- **Pagination**: Prevents loading all documents at once
+- **Optimized queries**: Convex real-time database
+- **Responsive images**: Efficient template image loading
+
+This page serves as the central hub for document management, providing users with an intuitive interface to search, browse, and access their documents while maintaining excellent performance and user experience across all device types.

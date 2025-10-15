@@ -1,0 +1,193 @@
+# VAULT PAGE - Detailed Description
+
+## Page Overview
+The Vault page serves as the central case management hub for the LexAI application. It provides users with a comprehensive interface to store, organize, and manage their legal cases with associated files and metadata. The page features a card-based layout that displays all user cases in an easily navigable grid format.
+
+## Layout Structure
+- **Full viewport height**: Uses min-h-[100vh] for complete screen coverage
+- **Background**: Light gray (#f7f8fa) for subtle contrast
+- **Padding**: Responsive padding (p-4 on mobile, p-8 on larger screens)
+- **Grid layout**: Responsive card grid system
+
+## Header Section
+- **Main Title**: "Vault" (text-4xl, font-extrabold, tracking-tight)
+- **Subtitle**: "Store and manage your cases." (text-lg, gray-500)
+- **Spacing**: Large margin bottom (mb-10) for visual separation
+
+## Create Case Card (Always First)
+Positioned at the top of the grid as a special call-to-action card:
+
+### Visual Design
+- **Special styling**: Dashed border (border-2 border-dashed border-blue-300)
+- **Background**: Blue tinted background (bg-blue-50/40)
+- **Hover effects**: Enhanced blue background and border on hover
+- **Icon**: Large plus icon in blue circle (bg-blue-100, p-4)
+- **Typography**: Blue color scheme throughout
+
+### Content
+- **Title**: "Create case" (text-lg, font-bold, text-blue-700)
+- **Subtitle**: "Start a new case record" (text-sm, text-blue-500)
+- **Action**: Click navigates to `/vault/create`
+
+### Responsive Behavior
+- **Grid positioning**: Always appears first in grid
+- **Size**: Same dimensions as regular case cards
+- **Touch targets**: Optimized for mobile interaction
+
+## Case Cards Grid
+
+### Grid Layout
+- **Responsive columns**:
+  - Mobile: 1 column (grid-cols-1)
+  - Small screens: 2 columns (sm:grid-cols-2)
+  - Medium screens: 3 columns (md:grid-cols-3)
+  - Large screens: 4 columns (lg:grid-cols-4)
+- **Gap**: 8 units between cards (gap-8)
+- **Margin**: Bottom margin (mb-12) for section separation
+
+### Individual Case Card Design
+Each case card is a clickable card component with comprehensive information display:
+
+#### Visual Elements
+- **Card styling**: White background with shadow (shadow-md)
+- **Hover effects**: Scale transform (hover:scale-[1.025]) and enhanced shadow
+- **Border**: Subtle border with hover state changes
+- **Icon**: Large folder icon (h-16 w-16) in muted colors
+- **Access icon**: Small icon in bottom-right corner
+
+#### Content Structure
+- **Title**: Case name (text-md, font-semibold, gray-900)
+- **Subtitle**: Case description (text-xs, gray-500)
+- **Metadata display**:
+  - Petitioner name (if available)
+  - Respondent name (if available)
+  - Last modified date (if available)
+- **File count**: Number of files indicator (text-xs, gray-400)
+- **Access type**: Shared/private indicator with appropriate icon
+
+#### Interactive Behavior
+- **Click action**: Navigates to individual case page (`/vault/${caseId}`)
+- **Hover states**: Visual feedback with scaling and shadow changes
+- **Focus management**: Proper keyboard navigation support
+
+## Empty State
+Displayed when no cases exist in the user's vault:
+
+### Visual Design
+- **Container**: Centered content with padding (py-16)
+- **Background**: White with subtle transparency (bg-white/80)
+- **Border**: Dashed border (border-dashed border-gray-300)
+- **Shadow**: Subtle shadow (shadow-sm)
+- **Icon**: Large folder icon (h-16 w-16) in gray-300
+
+### Content
+- **Icon**: Folder SVG icon in light gray
+- **Message**: "No cases found." (text-gray-500, text-lg)
+- **Action button**: "+ Create your first case" (blue button with hover effects)
+
+### Styling
+- **Button**: Blue background (bg-blue-600) with hover state (hover:bg-blue-700)
+- **Typography**: White text with font weight (text-white, font-semibold)
+- **Padding**: Generous padding (px-6 py-2)
+- **Border radius**: Rounded corners (rounded-lg)
+- **Shadow**: Button shadow for depth
+
+## Data Management
+
+### Firebase Integration
+- **Authentication**: Uses Firebase Auth for user identification
+- **Firestore**: Real-time data from Firestore database
+- **Collection structure**: `/users/{uid}/cases/`
+- **Real-time updates**: Automatic data synchronization
+
+### Data Fetching
+- **Loading states**: Shows "Loading cases…" during data fetch
+- **Error handling**: Graceful error management
+- **User authentication**: Redirects if not authenticated
+- **Data processing**: Transforms Firestore data to display format
+
+### File Counting
+- **Automatic calculation**: Counts files in each case's subcollection
+- **Real-time updates**: Updates when files are added/removed
+- **Performance optimization**: Efficient querying of file counts
+
+### Metadata Tracking
+- **Case details**: Stores comprehensive case information
+- **Timestamps**: Tracks creation and modification dates
+- **User-specific**: Each user sees only their own cases
+- **Data validation**: Ensures data integrity
+
+## Responsive Design
+
+### Mobile Layout
+- **Single column**: Cards stack vertically
+- **Touch-friendly**: Larger touch targets
+- **Optimized spacing**: Adjusted padding and margins
+- **Readable text**: Appropriate font sizes for mobile
+
+### Tablet Layout
+- **Two columns**: Balanced grid layout
+- **Medium spacing**: Optimized for tablet screens
+- **Touch interaction**: Maintains touch-friendly design
+
+### Desktop Layout
+- **Up to 4 columns**: Maximum information density
+- **Hover effects**: Rich interactive feedback
+- **Optimal spacing**: Professional desktop appearance
+- **Mouse interaction**: Precise cursor-based interaction
+
+## Performance Features
+
+### Loading Optimization
+- **Lazy loading**: Efficient component rendering
+- **Data caching**: Reduces unnecessary API calls
+- **Error boundaries**: Prevents crashes from data errors
+- **Loading indicators**: Clear user feedback
+
+### State Management
+- **React hooks**: Efficient state management
+- **Memoization**: Prevents unnecessary re-renders
+- **Effect optimization**: Proper dependency management
+- **Memory management**: Cleanup of subscriptions
+
+## User Experience Features
+
+### Navigation
+- **Intuitive flow**: Clear path from vault to individual cases
+- **Breadcrumb support**: Easy navigation back to vault
+- **Quick actions**: Direct access to case creation
+- **Search capability**: Future enhancement for case search
+
+### Visual Hierarchy
+- **Clear typography**: Proper font weights and sizes
+- **Color coding**: Consistent color scheme
+- **Spacing**: Appropriate white space usage
+- **Iconography**: Meaningful icon usage
+
+### Accessibility
+- **Keyboard navigation**: Full keyboard support
+- **Screen readers**: ARIA labels and descriptions
+- **Color contrast**: WCAG compliant colors
+- **Focus indicators**: Clear focus management
+
+## Technical Implementation
+
+### Component Architecture
+- **ProjectCard component**: Reusable card component
+- **Responsive grid**: CSS Grid with responsive breakpoints
+- **State management**: React hooks for local state
+- **Effect handling**: Proper cleanup and dependencies
+
+### Data Flow
+- **Authentication check**: Verifies user login status
+- **Data fetching**: Retrieves cases from Firestore
+- **State updates**: Updates UI based on data changes
+- **Error handling**: Manages various error states
+
+### Performance Considerations
+- **Efficient queries**: Optimized Firestore queries
+- **Component optimization**: Memoized components where appropriate
+- **Bundle size**: Minimal JavaScript bundle
+- **Rendering optimization**: Efficient re-render patterns
+
+This page serves as the central hub for case management, providing users with an intuitive interface to organize and access their legal cases while maintaining excellent performance and user experience across all device types.

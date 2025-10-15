@@ -1,0 +1,253 @@
+# VAULT CASE DETAIL PAGE - Detailed Description
+
+## Page Overview
+The Vault Case Detail page (`/vault/[caseId]`) provides comprehensive case management functionality for individual legal cases. It features a two-column layout with file management on the left and case metadata editing on the right, allowing users to upload, organize, and manage case files while maintaining detailed case information.
+
+## Layout Structure
+- **Container**: Max-width container (max-w-5xl) with responsive padding
+- **Layout**: Two-column flexbox layout (flex-col md:flex-row)
+- **Gap**: 8 units between columns (gap-8)
+- **Padding**: Responsive padding (py-6 px-6)
+
+## Left Column - File Management
+
+### Header Section
+- **Back button**: "← Back to Vault" with blue styling and hover underline
+- **Title**: "Case Files" (text-2xl, font-semibold, gray-800)
+- **Spacing**: Proper margin bottom (mb-6)
+
+### Search and Upload Controls
+- **Search input**: Text input with placeholder "Search"
+  - Styling: Gray border with blue focus ring
+  - Functionality: Real-time file filtering
+  - Responsive: Full width on mobile
+
+- **Upload controls**: Right-aligned button group
+  - **Upload button**: "Upload files" with hover states
+  - **Delete button**: Red styling, appears when files are selected
+  - **File input**: Hidden input accepting various file types
+
+### File List Display
+- **Loading state**: "Loading files…" message
+- **Error state**: Red error message display
+- **File table**: Comprehensive file listing with selection capabilities
+
+#### File Table Features
+- **Checkbox selection**: Individual and bulk selection
+- **File information**: Name, type, upload date
+- **Action buttons**: View, download, delete options
+- **Responsive design**: Adapts to screen size
+
+## Right Column - Case Metadata Panel
+
+### Panel Design
+- **Container**: White background with transparency (bg-white/90)
+- **Backdrop blur**: Subtle blur effect (backdrop-blur)
+- **Border**: Gray border with rounded corners (border-gray-100, rounded-2xl)
+- **Shadow**: Prominent shadow (shadow-xl)
+- **Padding**: Generous padding (p-6)
+- **Width**: Fixed width (w-[340px]) with max-width constraint
+
+### Header Section
+- **Title**: "Case Metadata" (text-base, font-semibold)
+- **Edit button**: "Edit" / "Cancel" toggle button
+- **Styling**: Blue text with hover underline
+
+### Metadata Display Modes
+
+#### View Mode (Default)
+- **Empty state**: "No metadata available" when no data exists
+- **Metadata list**: Key-value pairs display
+- **Field formatting**: Proper label formatting (camelCase to readable)
+- **Value display**: Full text with proper wrapping
+
+#### Edit Mode
+- **Form layout**: Vertical stack of form fields
+- **Field types**: Text inputs, textareas, date inputs
+- **Dynamic fields**: Add/remove custom fields
+- **Validation**: Real-time form validation
+
+### Metadata Fields
+Comprehensive set of legal case metadata fields:
+
+#### Basic Information
+- **Petitioner Name**: Text input
+- **Respondent Name**: Text input
+- **Filing Date**: Date input with proper formatting
+- **Judge Name**: Text input
+
+#### Case Details
+- **Case Number**: Text input
+- **Court Name**: Text input
+- **Jurisdiction**: Text input
+- **Case Type**: Text input
+- **Case Status**: Text input
+
+#### Important Dates
+- **Hearing Date**: Date input
+- **Order/Decision Date**: Date input
+
+#### Legal Information
+- **Value in Dispute**: Text input
+- **Arbitration Institution**: Text input
+- **Procedure Type**: Text input
+- **Advocates**: Text input
+- **Opposing Counsel**: Text input
+- **Bench**: Text input
+
+#### Legal References
+- **Sections Involved**: Text input
+- **Acts/Statutes**: Text input
+
+#### Documentation
+- **Case Summary**: Large textarea
+- **Notes/Remarks**: Large textarea
+
+### Dynamic Field Management
+- **Add field dropdown**: Select from predefined fields
+- **Custom field option**: Add completely custom fields
+- **Field validation**: Ensure unique field names
+- **Remove fields**: Delete unwanted fields
+
+### Form Actions
+- **Save button**: Blue styling with loading state
+- **Cancel button**: Gray styling for form reset
+- **Loading states**: Disabled during save operations
+- **Success feedback**: Alert confirmation on save
+
+## File Upload Functionality
+
+### Upload Process
+- **File selection**: Hidden input triggered by button
+- **File validation**: Type and size checking
+- **Upload progress**: Visual feedback during upload
+- **Error handling**: Graceful error management
+
+### Supported File Types
+- **Documents**: PDF, DOC, DOCX
+- **Text files**: TXT, MD
+- **Images**: JPG, PNG, GIF
+- **Other**: JSON, CSV
+
+### File Storage
+- **Firebase Storage**: Secure file storage
+- **Path structure**: Organized by user and case
+- **Metadata storage**: File information in Firestore
+- **URL generation**: Download URLs for file access
+
+## File Management Features
+
+### File Operations
+- **Upload**: Add new files to case
+- **Download**: Access file content
+- **Delete**: Remove files (with confirmation)
+- **Search**: Filter files by name
+- **Bulk operations**: Select multiple files for batch actions
+
+### File Information Display
+- **File name**: Full filename with extension
+- **File type**: MIME type or extension
+- **Upload date**: Formatted timestamp
+- **File size**: Human-readable size
+- **Storage path**: Internal storage reference
+
+### Selection System
+- **Individual selection**: Checkbox for each file
+- **Bulk selection**: Select all/none functionality
+- **Visual feedback**: Selected state indication
+- **Action buttons**: Context-sensitive actions
+
+## Data Management
+
+### Firebase Integration
+- **Authentication**: User verification
+- **Firestore**: Case and file metadata
+- **Storage**: File binary data
+- **Real-time updates**: Live data synchronization
+
+### Data Structure
+- **Case document**: Main case information
+- **Files subcollection**: Individual file documents
+- **Metadata object**: Structured case data
+- **Timestamps**: Creation and modification tracking
+
+### Error Handling
+- **Network errors**: Graceful degradation
+- **Permission errors**: User-friendly messages
+- **Validation errors**: Form-specific feedback
+- **Storage errors**: File operation feedback
+
+## Responsive Design
+
+### Mobile Layout
+- **Single column**: Stacked layout
+- **Full-width panels**: Optimized for mobile
+- **Touch-friendly**: Larger touch targets
+- **Simplified controls**: Streamlined interface
+
+### Tablet Layout
+- **Two columns**: Side-by-side layout
+- **Balanced spacing**: Optimized for medium screens
+- **Touch interaction**: Maintains touch-friendly design
+
+### Desktop Layout
+- **Full two-column**: Optimal desktop experience
+- **Fixed metadata panel**: Consistent right panel
+- **Flexible file area**: Adapts to content
+- **Hover effects**: Rich interactive feedback
+
+## Performance Features
+
+### Loading Optimization
+- **Lazy loading**: Efficient component rendering
+- **Data caching**: Reduces API calls
+- **Error boundaries**: Prevents crashes
+- **Loading indicators**: Clear user feedback
+
+### State Management
+- **React hooks**: Efficient state management
+- **Memoization**: Prevents unnecessary re-renders
+- **Effect optimization**: Proper dependency management
+- **Memory management**: Cleanup of subscriptions
+
+## User Experience Features
+
+### Visual Feedback
+- **Loading states**: Clear progress indication
+- **Success messages**: Confirmation of actions
+- **Error messages**: Helpful error descriptions
+- **Hover effects**: Interactive feedback
+
+### Accessibility
+- **Keyboard navigation**: Full keyboard support
+- **Screen readers**: ARIA labels and descriptions
+- **Color contrast**: WCAG compliant colors
+- **Focus management**: Proper focus handling
+
+### Form Experience
+- **Real-time validation**: Immediate feedback
+- **Auto-save**: Optional automatic saving
+- **Draft preservation**: Maintains unsaved changes
+- **Confirmation dialogs**: Prevents accidental data loss
+
+## Technical Implementation
+
+### Component Architecture
+- **FileList component**: Reusable file display
+- **Metadata form**: Dynamic form generation
+- **Upload handler**: File processing logic
+- **State management**: Local and global state
+
+### Data Flow
+- **Authentication check**: Verifies user access
+- **Data fetching**: Retrieves case and file data
+- **State updates**: Updates UI based on changes
+- **Error handling**: Manages various error states
+
+### Performance Considerations
+- **Efficient queries**: Optimized Firestore queries
+- **Component optimization**: Memoized components
+- **Bundle size**: Minimal JavaScript bundle
+- **Rendering optimization**: Efficient re-render patterns
+
+This page provides comprehensive case management functionality, allowing legal professionals to organize their case files and maintain detailed case metadata in an intuitive and efficient interface.

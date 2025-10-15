@@ -1,0 +1,265 @@
+# DOCUMENT EDITOR PAGE - Detailed Description
+
+## Page Overview
+The Document Editor page is the core editing interface of the LexAI application. It provides a comprehensive rich-text editing experience with real-time collaboration, AI-powered legal assistance, and advanced formatting capabilities. The page is designed for professional legal document creation and editing.
+
+## Layout Structure
+- **Full viewport height**: Uses min-h-screen for complete screen coverage
+- **Background**: Editor-specific background color (#FAFBFD)
+- **Main layout**: Flexbox with main editor area and right sidebar
+- **Fixed header**: 112px height fixed navigation and toolbar
+- **Responsive design**: Adapts to different screen sizes
+
+## Fixed Header Section (112px height)
+
+### Navigation Bar (Top 48px)
+- **Position**: Fixed at top with z-index 10
+- **Background**: Light gray (#FAFBFD)
+- **Padding**: 16px horizontal (px-4), 8px top (pt-2)
+- **Z-index**: 10 for proper layering
+
+#### Left Section - Branding & Document Info
+- **Logo**: 36x36px SVG logo image
+- **Document title**: Editable input field
+- **Menu bar**: File, Edit, Insert, Format menus
+- **Layout**: Horizontal flex with 8px gap (gap-2)
+
+#### Right Section - User Actions
+- **Avatars**: Collaborative user avatars
+- **Inbox**: Notification/comment system
+- **Organization Switcher**: Clerk organization management
+- **User Button**: Clerk user profile button
+- **Layout**: Horizontal flex with 12px gap (gap-3)
+
+### Toolbar (Bottom 64px)
+- **Position**: Below navigation bar
+- **Background**: Light gray (#F1F4F9)
+- **Padding**: 10px horizontal (px-2.5), 2px vertical (py-0.5)
+- **Height**: 40px minimum (min-h-[40px])
+- **Layout**: Horizontal flex with overflow scroll
+- **Border radius**: 24px (rounded-[24px])
+
+#### Toolbar Sections
+1. **Basic Actions** (4 buttons):
+   - Undo (Undo2Icon)
+   - Redo (Redo2Icon)
+   - Print (PrinterIcon)
+   - Spell Check (SpellCheckIcon)
+
+2. **Typography Controls**:
+   - Font Family dropdown (120px width)
+   - Heading Level dropdown
+   - Font Size controls (+/- buttons with input)
+
+3. **Text Formatting** (3 buttons):
+   - Bold (BoldIcon)
+   - Italic (ItalicIcon)
+   - Underline (UnderlineIcon)
+
+4. **Advanced Formatting**:
+   - Text Color picker (A with color indicator)
+   - Highlight Color picker (HighlighterIcon)
+   - Link button (Link2Icon)
+   - Image button (ImageIcon)
+
+5. **Alignment & Lists**:
+   - Text Alignment dropdown (4 options)
+   - Line Height dropdown (5 options)
+   - List controls (Bullet, Ordered)
+
+6. **Special Features** (3 buttons):
+   - Comment (MessageSquarePlusIcon)
+   - Task List (ListTodoIcon)
+   - Remove Formatting (RemoveFormattingIcon)
+
+## Main Editor Area
+
+### Editor Container
+- **Position**: Below fixed header (pt-[114px])
+- **Background**: Editor background color
+- **Padding**: 16px horizontal (px-4)
+- **Print styles**: No padding in print mode (print:pt-0)
+
+### Document Canvas
+- **Width**: 816px fixed width
+- **Height**: 1054px minimum (min-h-[1054px])
+- **Background**: White
+- **Border**: Editor border color
+- **Padding**: 40px top (pt-10), 56px right (pr-14), 40px bottom (pb-10)
+- **Cursor**: Text cursor
+- **Focus**: Outline-none on focus
+
+### Ruler Component
+- **Position**: Above document canvas
+- **Functionality**: Visual measurement guide
+- **Styling**: Matches document width
+
+### Threads Component
+- **Position**: Overlaid on document
+- **Functionality**: Comment threads and collaboration
+- **Styling**: Positioned absolutely
+
+## Right Sidebar - Legal AI Panel (384px width)
+
+### Panel Container
+- **Position**: Fixed right side
+- **Width**: 384px (w-96)
+- **Height**: Full viewport minus header (h-[calc(100vh-112px)])
+- **Top**: Below header (top-[112px])
+- **Background**: White
+- **Border**: Left border (border-l border-gray-200)
+- **Z-index**: 20
+- **Overflow**: Vertical scroll (overflow-y-auto)
+- **Print**: Hidden in print mode
+
+### Legal AI Editor Component
+- **Main component**: LegalAIEditor integration
+- **Functionality**: AI-powered legal assistance
+- **Features**: Context-aware suggestions and analysis
+
+### Selection Analysis Card
+- **Title**: "Selection Analysis" with Brain icon
+- **Selected Text Preview**: Shows currently selected text
+- **Legal Elements**: Badge list of identified legal elements
+- **Document Structure**: Grid showing paragraphs, headings, lists, tables
+
+### Quick Actions Card
+- **Title**: "Quick Actions"
+- **Description**: "Common legal editing tasks"
+- **Actions**:
+  - Rephrase Clause (blue theme)
+  - Strengthen Language (green theme)
+  - Simplify Language (purple theme)
+  - Remove Redundancy (orange theme)
+
+### Last Edit Summary Card
+- **Title**: "Last Edit Summary" with Scale icon
+- **Confidence Badge**: Color-coded confidence percentage
+- **Changes List**: Bulleted list of changes made
+- **Warnings**: Yellow alert box for warnings
+
+## Floating UI Elements
+
+### Floating Legal AI Button
+- **Position**: Absolute positioning based on text selection
+- **Visibility**: Shows when text is selected
+- **Functionality**: Quick access to AI features
+- **Styling**: Floating button with shadow
+
+### Floating Expand Button
+- **Position**: Absolute positioning based on text selection
+- **Visibility**: Shows when text is selected
+- **Functionality**: Expand/collapse panels
+- **Styling**: Floating button with shadow
+
+## Editor Features
+
+### Rich Text Editing
+- **TipTap Editor**: Full-featured rich text editor
+- **Extensions**: 
+  - StarterKit (basic formatting)
+  - Table support (Table, TableCell, TableHeader, TableRow)
+  - Task lists (TaskList, TaskItem)
+  - Images with resize (Image, ImageResize)
+  - Underline support
+  - Font family and text style
+  - Color and highlight
+  - Text alignment
+  - Link support
+  - Custom font size and line height
+
+### Real-time Collaboration
+- **Liveblocks Integration**: Real-time collaborative editing
+- **User Avatars**: Shows active collaborators
+- **Comments**: Thread-based commenting system
+- **Offline Support**: Experimental offline functionality
+
+### Document Management
+- **Auto-save**: Automatic document saving
+- **Version Control**: Change tracking and history
+- **Export Options**: JSON, HTML, PDF, Text formats
+- **Print Support**: Optimized print layout
+
+## AI Integration
+
+### Legal AI Assistant
+- **Context Awareness**: Analyzes selected text and document structure
+- **Legal Analysis**: Identifies legal elements and patterns
+- **Content Generation**: AI-powered content suggestions
+- **Language Enhancement**: Improves legal language and clarity
+
+### AI Features
+- **Rephrasing**: Convert informal to formal legal language
+- **Strengthening**: Enhance enforceability of clauses
+- **Simplification**: Improve readability while maintaining legal accuracy
+- **Redundancy Removal**: Clean up repetitive legal terms
+
+## Responsive Design
+
+### Mobile Layout
+- **Single column**: Sidebar moves below main content
+- **Touch-friendly**: Larger buttons and touch targets
+- **Optimized spacing**: Adjusted padding and margins
+- **Simplified toolbar**: Essential tools only
+
+### Desktop Layout
+- **Two columns**: Main editor and sidebar side-by-side
+- **Full toolbar**: All formatting options available
+- **Hover effects**: Rich interactive feedback
+- **Keyboard shortcuts**: Power user features
+
+## Performance Features
+
+### Optimized Rendering
+- **Lazy loading**: Efficient component rendering
+- **Memoization**: Prevents unnecessary re-renders
+- **Efficient queries**: Optimized data fetching
+- **Memory management**: Proper cleanup of subscriptions
+
+### Real-time Updates
+- **Liveblocks**: Real-time collaboration
+- **State management**: Efficient state updates
+- **Change tracking**: Optimized change detection
+- **Conflict resolution**: Handles concurrent edits
+
+## User Experience Features
+
+### Visual Feedback
+- **Loading states**: Clear progress indication
+- **Hover effects**: Interactive element highlighting
+- **Focus indicators**: Clear focus management
+- **Selection feedback**: Visual text selection indicators
+
+### Accessibility
+- **Keyboard navigation**: Full keyboard support
+- **Screen readers**: ARIA labels and descriptions
+- **Color contrast**: WCAG compliant colors
+- **Focus management**: Proper focus handling
+
+### Collaboration Features
+- **User presence**: Shows active collaborators
+- **Comment system**: Thread-based discussions
+- **Change tracking**: Visual change indicators
+- **Conflict resolution**: Graceful handling of conflicts
+
+## Technical Implementation
+
+### Component Architecture
+- **Room component**: Liveblocks room wrapper
+- **Editor component**: TipTap editor integration
+- **Legal AI Panel**: AI assistance interface
+- **Toolbar**: Comprehensive formatting controls
+
+### State Management
+- **Editor store**: Global editor state management
+- **Liveblocks state**: Real-time collaboration state
+- **Local state**: Component-specific state
+- **URL state**: Document ID and parameters
+
+### Data Flow
+- **Document loading**: Preloaded document data
+- **Content processing**: Template content processing
+- **Real-time updates**: Liveblocks synchronization
+- **AI integration**: Legal AI service calls
+
+This page provides a comprehensive document editing experience that combines powerful rich-text editing with AI-powered legal assistance and real-time collaboration features, making it an ideal platform for professional legal document creation and editing.

@@ -1,0 +1,281 @@
+# CALENDAR PAGE - Detailed Description
+
+## Page Overview
+The Calendar page provides comprehensive Google Calendar integration specifically designed for legal professionals. It features a full-featured calendar interface with specialized legal event types, event management capabilities, and seamless Google Calendar synchronization. The page is optimized for managing legal schedules, court dates, deadlines, and meetings.
+
+## Layout Structure
+- **Full viewport**: min-h-screen for complete screen coverage
+- **Background**: Blue gradient (from-blue-50 via-white to-blue-100)
+- **Main container**: Centered with max-width (max-w-5xl)
+- **Padding**: Responsive padding (p-4 on mobile, p-8 on larger screens)
+
+## Header Section
+- **Icon and title**: Gavel icon with "My Legal Calendar" title
+- **Icon**: Large gavel icon (h-10 w-10, text-blue-600)
+- **Title**: "My Legal Calendar" (text-4xl, font-extrabold, text-blue-900)
+- **Layout**: Flexbox with gap for proper spacing
+- **Typography**: Sans-serif font with tight tracking
+
+## Main Calendar Container
+- **Background**: White with transparency (bg-white/80)
+- **Backdrop blur**: Subtle blur effect (backdrop-blur)
+- **Border radius**: Large rounded corners (rounded-3xl)
+- **Shadow**: Prominent shadow (shadow-2xl)
+- **Padding**: Responsive padding (p-4 sm:p-8)
+
+## Calendar Controls Section
+
+### View Toggle Buttons
+- **Container**: Blue-tinted background (bg-blue-50)
+- **Border**: Rounded full with inner shadow (rounded-full, shadow-inner)
+- **Border**: Blue border (border-blue-100)
+- **Layout**: Flexbox with gap for button spacing
+
+#### View Options
+1. **Month View**: Default calendar month display
+2. **Week View**: 7-day week layout
+3. **Day View**: Single day detailed view
+4. **Agenda View**: List format of events
+
+#### Button Styling
+- **Active state**: White background with blue text and shadow
+- **Inactive state**: Transparent background with blue text
+- **Hover state**: Light blue background
+- **Focus state**: Blue ring for accessibility
+- **Typography**: Medium font weight, small text size
+
+### Navigation Controls
+- **Previous/Next buttons**: Chevron icons for date navigation
+- **Button styling**: White background with gray border
+- **Hover effects**: Light blue background
+- **Icons**: ChevronLeft and ChevronRight icons
+- **Accessibility**: Proper ARIA labels
+
+### Date Display
+- **Current date**: Shows selected month/year or specific date
+- **Format**: Responsive formatting based on view
+- **Typography**: Semibold font weight
+- **Color**: Gray-700 for good contrast
+
+## Calendar Display
+
+### Event Types and Color Coding
+The calendar supports four specialized legal event types with distinct color coding:
+
+1. **Hearing** (Blue #2563eb)
+   - Court hearings and legal proceedings
+   - Most critical legal events
+   - High priority visual treatment
+
+2. **Meeting** (Green #16a34a)
+   - Client meetings and consultations
+   - Internal team meetings
+   - Professional networking events
+
+3. **Deadline** (Red #dc2626)
+   - Filing deadlines and due dates
+   - Critical time-sensitive events
+   - Urgent attention required
+
+4. **General** (Gray #64748b)
+   - Miscellaneous legal events
+   - General appointments
+   - Non-specific legal activities
+
+### Event Display
+- **Event styling**: Rounded corners with subtle shadow
+- **Color indicators**: Small colored dots for event type
+- **Typography**: Medium font weight, readable size
+- **Layout**: Flexbox with icon and text
+- **Hover effects**: Subtle interaction feedback
+
+### Calendar Grid
+- **Height**: Fixed 600px height for consistent display
+- **Background**: Transparent with rounded corners
+- **Border**: Subtle blue border
+- **Shadow**: Light shadow for depth
+- **Responsive**: Adapts to container width
+
+## Event Management
+
+### Add Event Modal
+Full-screen modal overlay for creating new events:
+
+#### Modal Design
+- **Overlay**: Black background with blur (bg-black/30, backdrop-blur-sm)
+- **Container**: White rounded container (rounded-2xl)
+- **Shadow**: Prominent shadow (shadow-2xl)
+- **Padding**: Generous padding (p-8)
+- **Width**: Responsive max-width (max-w-md)
+
+#### Form Fields
+1. **Title**: Required text input
+   - Placeholder: "Title"
+   - Styling: Blue-themed border and focus states
+
+2. **Event Type**: Dropdown selection
+   - Options: Hearing, Meeting, Deadline, General
+   - Styling: Consistent with other inputs
+
+3. **Start Date/Time**: DateTime input
+   - Type: datetime-local
+   - Required field
+   - Styling: Blue-themed focus states
+
+4. **End Date/Time**: DateTime input
+   - Type: datetime-local
+   - Required field
+   - Styling: Blue-themed focus states
+
+5. **Description**: Optional textarea
+   - Placeholder: "Description (optional)"
+   - Styling: Consistent with other inputs
+
+#### Form Actions
+- **Cancel button**: Gray background with hover effects
+- **Add button**: Blue background with hover effects
+- **Layout**: Flexbox with equal width buttons
+- **Typography**: Semibold font weight
+
+### Event Details Modal
+Modal for viewing and managing existing events:
+
+#### Modal Design
+- **Same overlay styling**: Consistent with add modal
+- **Content layout**: Vertical stack with proper spacing
+- **Event information**: Clear display of event details
+
+#### Event Information Display
+- **Title**: Large, bold text with color indicator
+- **Description**: Formatted text with proper line breaks
+- **Time range**: Formatted start and end times
+- **Type indicator**: Colored dot matching event type
+
+#### Action Buttons
+- **Close button**: Gray styling for dismissal
+- **Delete button**: Red styling for destructive action
+- **Layout**: Equal width buttons in flexbox
+- **Confirmation**: JavaScript confirm dialog for deletion
+
+## Google Calendar Integration
+
+### Authentication Flow
+- **Token management**: Automatic token refresh
+- **Expiry handling**: Checks token validity before API calls
+- **Fallback**: Redirects to login if authentication fails
+- **Storage**: Secure localStorage for token persistence
+
+### API Integration
+- **Google Calendar API v3**: Full API integration
+- **Event fetching**: Retrieves events from primary calendar
+- **Event creation**: Creates new events via API
+- **Event deletion**: Removes events from Google Calendar
+- **Error handling**: Comprehensive error management
+
+### Data Synchronization
+- **Real-time updates**: Immediate sync with Google Calendar
+- **Conflict resolution**: Handles concurrent modifications
+- **Data validation**: Ensures data integrity
+- **Performance**: Optimized API calls
+
+## Empty and Loading States
+
+### Empty State
+- **Container**: Absolute positioned overlay
+- **Background**: White with transparency (bg-white/80)
+- **Content**: Centered with proper spacing
+- **Icon**: Large gavel icon in light blue
+- **Message**: "No events found. Start by adding your first event!"
+- **Styling**: Rounded corners and subtle appearance
+
+### Loading State
+- **Container**: Absolute positioned overlay
+- **Background**: White with transparency (bg-white/70)
+- **Content**: Centered loading indicator
+- **Animation**: Pulsing text effect
+- **Message**: "Loading events…"
+- **Z-index**: Proper layering (z-10)
+
+### Authentication Required State
+- **Full screen**: Complete viewport coverage
+- **Background**: Blue gradient matching main design
+- **Container**: White rounded container with shadow
+- **Icon**: Large gavel icon
+- **Title**: "Connect Google Calendar"
+- **Description**: Clear instructions for connection
+- **Button**: Blue button linking to login page
+
+## Responsive Design
+
+### Mobile Layout
+- **Single column**: Stacked layout for small screens
+- **Touch-friendly**: Larger buttons and touch targets
+- **Optimized spacing**: Adjusted padding and margins
+- **View buttons**: Stack vertically on very small screens
+
+### Tablet Layout
+- **Balanced layout**: Optimized for medium screens
+- **Touch interaction**: Maintains touch-friendly design
+- **Proper spacing**: Appropriate padding and margins
+
+### Desktop Layout
+- **Full features**: All functionality available
+- **Hover effects**: Rich interactive feedback
+- **Optimal spacing**: Professional desktop appearance
+- **Mouse interaction**: Precise cursor-based interaction
+
+## Performance Features
+
+### Loading Optimization
+- **Lazy loading**: Efficient component rendering
+- **Data caching**: Reduces unnecessary API calls
+- **Error boundaries**: Prevents crashes from API errors
+- **Loading indicators**: Clear user feedback
+
+### State Management
+- **React hooks**: Efficient state management
+- **Memoization**: Prevents unnecessary re-renders
+- **Effect optimization**: Proper dependency management
+- **Memory management**: Cleanup of subscriptions
+
+## User Experience Features
+
+### Visual Feedback
+- **Loading animations**: Pulsing effects during loading
+- **Hover states**: Interactive feedback on hover
+- **Focus indicators**: Clear focus management
+- **Transition effects**: Smooth state changes
+
+### Accessibility
+- **Keyboard navigation**: Full keyboard support
+- **Screen readers**: ARIA labels and descriptions
+- **Color contrast**: WCAG compliant colors
+- **Focus management**: Proper focus handling
+
+### Error Handling
+- **User-friendly messages**: Clear error descriptions
+- **Graceful degradation**: Fallback for API failures
+- **Retry mechanisms**: Options to retry failed operations
+- **Validation feedback**: Real-time form validation
+
+## Technical Implementation
+
+### Component Architecture
+- **React Big Calendar**: Full-featured calendar component
+- **Date-fns**: Date manipulation and formatting
+- **Axios**: HTTP client for API calls
+- **Custom hooks**: Reusable state management
+
+### Data Flow
+- **Authentication check**: Verifies Google Calendar access
+- **Event fetching**: Retrieves events from Google Calendar
+- **State updates**: Updates UI based on data changes
+- **Error handling**: Manages various error states
+
+### Performance Considerations
+- **Efficient queries**: Optimized API calls
+- **Component optimization**: Memoized components where appropriate
+- **Bundle size**: Minimal JavaScript bundle
+- **Rendering optimization**: Efficient re-render patterns
+
+This page provides a comprehensive calendar solution specifically designed for legal professionals, combining the power of Google Calendar with specialized legal event management features and an intuitive user interface.

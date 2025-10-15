@@ -1,0 +1,233 @@
+# TEMPLATE CUSTOMIZATION MODAL - Detailed Description
+
+## Component Overview
+The Template Customization Modal is a dialog component that appears when users click on templates from the home page. It provides two options: using the template as-is or customizing it with AI-powered personalization based on user-provided answers to specific questions.
+
+## Modal Structure
+- **Component**: Shadcn Dialog with DialogContent, DialogHeader, DialogTitle, DialogFooter
+- **Size**: Max width 2xl (672px), max height 80vh with vertical scroll
+- **State**: Controlled by isOpen prop
+- **Accessibility**: Full keyboard navigation and screen reader support
+
+## Header Section
+- **Title**: "Customize Template" with FileText icon
+- **Icon**: FileText (h-5 w-5) in dialog title
+- **Layout**: Flex items-center with 8px gap (gap-2)
+- **Styling**: Standard dialog header styling
+
+## Template Preview Section
+- **Container**: Gray background (bg-gray-50) with rounded corners and padding
+- **Layout**: Horizontal flex with 16px gap (gap-4) and 16px padding (p-4)
+
+### Template Image
+- **Dimensions**: 64x80px (w-16 h-20)
+- **Styling**: Rounded border with background image
+- **Background**: Cover, center, no-repeat
+- **Source**: template.imageUrl prop
+
+### Template Information
+- **Title**: Template label (font-medium, text-lg)
+- **Description**: Dynamic text based on customization options
+  - With queries: "This template has X customization option(s)"
+  - Without queries: "This template can be used as-is or customized"
+- **Styling**: Small text (text-sm) in gray-600
+
+## Options Section
+- **Title**: "Choose an option:" (font-medium, text-base)
+- **Layout**: Vertical space with 16px gap (space-y-4)
+
+### Use Template As-Is Option
+- **Container**: Border with rounded corners, hover effects, cursor pointer
+- **Layout**: Horizontal flex with 12px gap (gap-3) and 16px padding (p-4)
+- **Hover**: Gray background (hover:bg-gray-50)
+- **Transition**: Smooth color transition
+
+#### Icon Section
+- **Container**: 40x40px (w-10 h-10) blue background (bg-blue-100)
+- **Shape**: Rounded full circle
+- **Icon**: FileText (h-5 w-5) in blue-600
+- **Alignment**: Centered with flex
+
+#### Content Section
+- **Title**: "Use Template As-Is" (font-medium)
+- **Description**: "Open the template with its original content"
+- **Styling**: Small text (text-sm) in gray-600
+- **Layout**: Flex-1 for full width
+
+### Customize with AI Option (Conditional)
+- **Visibility**: Only shown if template has queries
+- **Container**: Same styling as "Use As-Is" option
+- **Layout**: Horizontal flex with 12px gap (gap-3) and 16px padding (p-4)
+
+#### Icon Section
+- **Container**: 40x40px (w-10 h-10) purple background (bg-purple-100)
+- **Shape**: Rounded full circle
+- **Icon**: Sparkles (h-5 w-5) in purple-600
+- **Alignment**: Centered with flex
+
+#### Content Section
+- **Title**: "Customize with AI" (font-medium)
+- **Description**: "Answer questions to personalize the template"
+- **Styling**: Small text (text-sm) in gray-600
+- **Layout**: Flex-1 for full width
+
+## Customization Questions Section (Conditional)
+- **Visibility**: Only shown if template has queries
+- **Title**: "Customization Questions:" (font-medium, text-base)
+- **Layout**: Vertical space with 16px gap (space-y-4)
+
+### Question Inputs
+- **Container**: Individual question container with 8px vertical gap (space-y-2)
+- **Mapping**: Maps through template.queries array
+
+#### Question Label
+- **Component**: Shadcn Label
+- **Text**: Individual query text
+- **Styling**: Small text (text-sm) with medium font weight (font-medium)
+- **Accessibility**: Proper htmlFor association
+
+#### Answer Textarea
+- **Component**: Shadcn Textarea
+- **ID**: Unique ID for each question (query-${index})
+- **Placeholder**: "Enter your answer for: {query}"
+- **Value**: Controlled by answers state
+- **Height**: Minimum 80px (min-h-[80px])
+- **Change Handler**: Updates answers state via handleAnswerChange
+
+## Footer Section
+- **Layout**: Horizontal flex with 8px gap (gap-2)
+- **Buttons**: Three buttons with different purposes
+
+### Cancel Button
+- **Variant**: Outline
+- **Text**: "Cancel"
+- **Action**: Calls onClose function
+- **State**: Disabled during processing or customizing
+
+### Use As-Is Button
+- **Variant**: Secondary
+- **Text**: "Use As-Is"
+- **Icon**: FileText (h-4 w-4) with 8px right margin (mr-2)
+- **Action**: Calls handleSkip function
+- **State**: Disabled during processing or customizing
+
+### Create Customized Button (Conditional)
+- **Visibility**: Only shown if template has queries
+- **Variant**: Primary (default)
+- **Text**: Dynamic based on state
+  - Customizing: "Customizing..." with spinning loader
+  - Default: "Create Customized" with sparkles icon
+- **Icon**: 
+  - Loading: Loader2 (h-4 w-4) with spin animation
+  - Default: Sparkles (h-4 w-4) with 8px right margin (mr-2)
+- **Action**: Calls handleCustomize function
+- **State**: Disabled if not all answers provided or during processing
+
+## State Management
+
+### Local State
+- **answers**: Record<string, string> for user responses
+- **isCustomizing**: Boolean for customization loading state
+- **Initialization**: Empty object for answers, false for isCustomizing
+
+### Props State
+- **isOpen**: Boolean for modal visibility
+- **isProcessing**: Boolean for external processing state
+- **template**: Template object with id, label, imageUrl, initialContent, queries
+
+### State Updates
+- **Answer Changes**: Updates answers object with query-value pairs
+- **Skip Action**: Calls onSkip with template and closes modal
+- **Customize Action**: Sets isCustomizing true, calls onCustomize, then closes modal
+
+## Validation Logic
+
+### Query Validation
+- **hasQueries**: Checks if template.queries exists and has length > 0
+- **allAnswersProvided**: Validates all queries have non-empty answers
+- **Conditional Rendering**: Uses hasQueries for conditional sections
+
+### Button States
+- **Cancel/Use As-Is**: Disabled during isProcessing or isCustomizing
+- **Create Customized**: Disabled if not all answers provided or during processing
+
+## User Interactions
+
+### Template Selection
+- **Click on "Use As-Is"**: Immediately opens template in editor
+- **Click on "Customize with AI"**: Shows customization questions
+- **Answer Questions**: Updates answers state in real-time
+
+### Form Submission
+- **Skip**: Bypasses customization, uses original template
+- **Customize**: Processes answers with AI, creates personalized template
+- **Cancel**: Closes modal without action
+
+## Error Handling
+
+### Customization Errors
+- **Try-catch**: Wraps onCustomize call
+- **Console Logging**: Logs errors for debugging
+- **State Reset**: Resets isCustomizing on error
+- **User Feedback**: Relies on parent component for error display
+
+### Validation Errors
+- **Required Fields**: Prevents submission without all answers
+- **Button States**: Visual feedback for invalid states
+- **Real-time Validation**: Updates button states as user types
+
+## Accessibility Features
+
+### Keyboard Navigation
+- **Tab Order**: Logical tab sequence through all interactive elements
+- **Enter Key**: Activates focused buttons
+- **Escape Key**: Closes modal via onOpenChange
+
+### Screen Reader Support
+- **ARIA Labels**: Proper labeling for all form elements
+- **Focus Management**: Maintains focus within modal
+- **State Announcements**: Clear state changes for screen readers
+
+### Visual Accessibility
+- **Color Contrast**: WCAG compliant colors
+- **Icon Labels**: Meaningful icon usage
+- **Clear Hierarchy**: Proper heading structure
+
+## Integration Points
+
+### Parent Components
+- **TemplatesGallery**: Triggers modal on template click
+- **TemplateSearchResults**: Also triggers modal for search results
+- **Home Page**: Contains both triggering components
+
+### Callback Functions
+- **onSkip**: Handles template usage without customization
+- **onCustomize**: Handles AI-powered template customization
+- **onClose**: Handles modal dismissal
+
+### AI Integration
+- **TemplateAIService**: Used by parent for customization
+- **Custom Content**: Generates personalized template content
+- **Processing State**: Shows loading during AI processing
+
+## Visual Design
+
+### Color Scheme
+- **Primary**: Blue for "Use As-Is" option
+- **Secondary**: Purple for "Customize with AI" option
+- **Neutral**: Gray for backgrounds and text
+- **Success**: Green for completion states
+
+### Typography
+- **Headers**: Medium font weight for emphasis
+- **Body**: Regular font weight for readability
+- **Small Text**: Small size for descriptions
+- **Consistent Spacing**: Proper vertical rhythm
+
+### Layout Principles
+- **Centered Design**: Modal centered on screen
+- **Responsive**: Adapts to different screen sizes
+- **Clean Spacing**: Consistent padding and margins
+- **Visual Hierarchy**: Clear information organization
+
+This modal provides a sophisticated template selection and customization experience that balances ease of use with powerful AI-driven personalization capabilities.

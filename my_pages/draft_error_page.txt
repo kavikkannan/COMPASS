@@ -1,0 +1,206 @@
+# ERROR PAGE - Detailed Description
+
+## Page Overview
+The Error page provides a user-friendly error handling interface that displays when unexpected errors occur in the application. It offers a clean, professional error display with recovery options and maintains a consistent design language with the rest of the application.
+
+## Layout Structure
+- **Full viewport height**: Uses min-h-screen for complete screen coverage
+- **Centered content**: Flexbox centering for both horizontal and vertical alignment
+- **Background**: Clean white background
+- **Spacing**: 24px vertical gap between sections (space-y-6)
+
+## Main Container
+- **Layout**: Flex column with centered alignment
+- **Items**: Centered both horizontally and vertically
+- **Space**: 24px vertical gap between child elements (space-y-6)
+- **Height**: Full viewport height (min-h-screen)
+
+## Error Display Section
+
+### Icon Container
+- **Background**: Light rose background (bg-rose-100)
+- **Padding**: 12px (p-3)
+- **Shape**: Rounded full circle (rounded-full)
+- **Icon**: AlertTriangleIcon
+- **Size**: 40px (size-10)
+- **Color**: Rose-600 (text-rose-600)
+- **Alignment**: Centered with flex justify-center
+
+### Error Message Container
+- **Layout**: Vertical stack with 8px gap (space-y-2)
+- **Alignment**: Text centered
+- **Content**: Error title and message
+
+#### Error Title
+- **Text**: "Something went wrong"
+- **Styling**: Large text (text-xl), semibold font (font-semibold)
+- **Color**: Dark gray (text-gray-900)
+
+#### Error Message
+- **Content**: Dynamic error message from error prop
+- **Styling**: Default text styling
+- **Color**: Inherits from parent
+
+## Action Buttons Section
+
+### Button Container
+- **Layout**: Horizontal flex with 12px gap (gap-x-3)
+- **Alignment**: Items centered
+- **Spacing**: 12px horizontal gap between buttons
+
+### Try Again Button
+- **Text**: "Try again"
+- **Styling**: Primary button with medium font weight (font-medium)
+- **Action**: Calls reset function passed as prop
+- **Purpose**: Attempts to recover from error state
+
+### Go Back Button
+- **Text**: "Go back"
+- **Styling**: Ghost variant with medium font weight (font-medium)
+- **Action**: Navigates to home page (/)
+- **Component**: Link component wrapping button
+- **Purpose**: Returns user to safe state
+
+## Error Handling Features
+
+### Error Information Display
+- **Error message**: Shows the actual error message
+- **Error digest**: Optional error digest for debugging
+- **User-friendly**: Converts technical errors to user-friendly messages
+- **Accessibility**: Proper error announcement for screen readers
+
+### Recovery Options
+- **Retry functionality**: Allows users to attempt recovery
+- **Navigation escape**: Provides way to leave error state
+- **User guidance**: Clear instructions for next steps
+- **Error context**: Maintains error context for debugging
+
+## Visual Design
+
+### Color Scheme
+- **Primary error color**: Rose-600 for error indication
+- **Background**: Light rose (rose-100) for error icon
+- **Text colors**: Gray-900 for titles, default for content
+- **Button colors**: Primary blue and ghost gray
+
+### Typography
+- **Error title**: Large, semibold text for emphasis
+- **Error message**: Default text for readability
+- **Button text**: Medium font weight for clarity
+- **Consistent spacing**: Proper vertical rhythm
+
+### Layout Principles
+- **Centered design**: All content centered on page
+- **Visual hierarchy**: Clear information hierarchy
+- **Balanced spacing**: Consistent spacing throughout
+- **Clean aesthetics**: Minimal, professional appearance
+
+## Accessibility Features
+
+### Screen Reader Support
+- **Error announcement**: Proper error state announcement
+- **Button labels**: Clear button descriptions
+- **Focus management**: Proper focus handling
+- **ARIA attributes**: Appropriate ARIA labels
+
+### Keyboard Navigation
+- **Tab order**: Logical tab sequence
+- **Focus indicators**: Clear focus indicators
+- **Keyboard activation**: Full keyboard support
+- **Escape options**: Multiple ways to exit error state
+
+### Visual Accessibility
+- **Color contrast**: WCAG compliant color contrast
+- **Icon clarity**: Clear, recognizable error icon
+- **Text readability**: High contrast text
+- **Size considerations**: Appropriate text and icon sizes
+
+## Error Types Handled
+
+### Authentication Errors
+- **Unauthorized access**: Token validation failures
+- **Session expired**: Authentication timeout
+- **Permission denied**: Insufficient permissions
+- **Login required**: Missing authentication
+
+### Network Errors
+- **Connection timeout**: Network connectivity issues
+- **Server errors**: Backend service failures
+- **API errors**: External service failures
+- **Data loading errors**: Database connection issues
+
+### Application Errors
+- **Component errors**: React component failures
+- **State errors**: Application state corruption
+- **Routing errors**: Navigation failures
+- **Data validation errors**: Invalid data handling
+
+## User Experience Considerations
+
+### Error Recovery
+- **Clear instructions**: Tells users what to do next
+- **Multiple options**: Provides different recovery paths
+- **Context preservation**: Maintains user context when possible
+- **Progressive disclosure**: Shows appropriate level of detail
+
+### Error Prevention
+- **Graceful degradation**: Handles errors without crashing
+- **Error boundaries**: Prevents error propagation
+- **Validation**: Client-side validation to prevent errors
+- **User guidance**: Clear instructions to prevent user errors
+
+### Error Communication
+- **User-friendly language**: Avoids technical jargon
+- **Appropriate tone**: Professional but not alarming
+- **Clear actions**: Obvious next steps
+- **Error context**: Enough information to understand the issue
+
+## Technical Implementation
+
+### Component Props
+- **Error prop**: Error object with message and optional digest
+- **Reset function**: Function to attempt error recovery
+- **Type safety**: TypeScript error type definitions
+- **Prop validation**: Proper prop validation
+
+### Error Boundary Integration
+- **React error boundaries**: Catches component errors
+- **Error propagation**: Proper error handling chain
+- **Fallback UI**: Graceful error display
+- **Error reporting**: Optional error reporting integration
+
+### Navigation Integration
+- **Next.js routing**: Proper navigation handling
+- **Link components**: Accessible navigation links
+- **URL management**: Proper URL state handling
+- **History management**: Browser history integration
+
+## Performance Considerations
+
+### Error Page Loading
+- **Fast rendering**: Quick error page display
+- **Minimal dependencies**: Lightweight error page
+- **Efficient rendering**: Optimized component structure
+- **Memory usage**: Minimal memory footprint
+
+### Error Recovery Performance
+- **Quick retry**: Fast error recovery attempts
+- **Efficient navigation**: Fast page transitions
+- **State management**: Efficient state handling
+- **Resource cleanup**: Proper cleanup on navigation
+
+## Security Considerations
+
+### Error Information
+- **Information disclosure**: Prevents sensitive information leakage
+- **Error sanitization**: Sanitizes error messages
+- **Debug information**: Separates user and debug information
+- **Error logging**: Secure error logging
+
+### User Safety
+- **Safe navigation**: Provides safe navigation options
+- **Error isolation**: Prevents error propagation
+- **State protection**: Protects user state during errors
+- **Session management**: Maintains session security
+
+This error page provides a comprehensive error handling solution that maintains a professional appearance while offering clear recovery options and maintaining excellent user experience during error states.
